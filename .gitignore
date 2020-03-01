@@ -1,15 +1,30 @@
-CMakeLists.txt.user
-CMakeCache.txt
-CMakeFiles
-CMakeScripts
-Testing
-Makefile
-cmake_install.cmake
-install_manifest.txt
-compile_commands.json
-CTestTestfile.cmake
-_deps
-build/
-*.swp
-tags
+# default cmake files
+./CMakeLists.txt.user
+./CMakeCache.txt
+./CMakeFiles
+./CMakeScripts
+./Makefile
+./cmake_install.cmake
+
+# configurations
+./CPackConfig.camke
+./CPackSourceCongig.cmake
+
+# test
+./Testing
+./CTestTestfile.cmake
+
+# manifest 
+./install_manifest.txt
+
+# compile
+./compile_commands.json
+
+# dependencies
+./_deps
+
+# output
+./build/
+./*.swp
+./tags
 
