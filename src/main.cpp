@@ -1,27 +1,45 @@
 #include <iostream>
+#include <gtkmm.h>
 #include <gtk/gtk.h>
 #include "webkit2/webkit2.h"
-static void activate (GtkApplication* app,
-          gpointer        user_data)
-{
-  GtkWidget *window;
- 
-  window = gtk_application_window_new (app);
-  gtk_window_set_title (GTK_WINDOW (window), "Window");
-  gtk_window_set_default_size (GTK_WINDOW (window), 200, 200);
-  gtk_widget_show_all (window);
-}
 
-int main (int    argc,
-      char **argv)
-{
-  GtkApplication *app;
-  int status;
-  std::cout<<sizeof(_WebKitPolicyDecision)<<" SUCCCCC "<<std::endl;
-  app = gtk_application_new ("org.gtk.example", G_APPLICATION_FLAGS_NONE);
-  g_signal_connect (app, "activate", G_CALLBACK (activate), NULL);
-  status = g_application_run (G_APPLICATION (app), argc, argv);
-  g_object_unref (app);
+// TESTING AREA
 
-  return status;
+//
+
+
+
+
+int main (int argc, char** argv)
+{
+	
+	gtk_init(&argc, &argv);
+	
+	WebKitSettings *webkitSettings = webkit_settings_new();
+	webkit_settings_set_enable_developer_extras(webkitSettings, TRUE);
+	webkit_settings_set_enable_webgl(webkitSettings, TRUE);
+	webkit_settings_set_enable_media_stream(webkitSettings, TRUE);
+	WebKitWebContext* context = webkit_web_context_get_default();
+    webkit_web_context_set_favicon_database_directory(context, NULL);
+  Glib::RefPtr<Gtk::Application> app = Gtk::Application::create( argc, argv, "" );
+
+  Gtk::Window window;
+  window.set_default_size( 800, 600 );
+
+  WebKitWebView * one =  WEBKIT_WEB_VIEW( webkit_web_view_new() );
+  /*
+   * the next line does some tricks :
+   * GTK_WIDGET( one ) -> convert WebKitWebView to GtkWidget (one->two)
+   * Glib::wrap( GTK_WIDGET( one ) ) -> convert GtkWidget to Gtk::Widget (two->three)
+   */
+  Gtk::Widget * three = Glib::wrap( GTK_WIDGET( one ) );
+
+  window.add( *three );
+  webkit_web_view_load_uri(one, "http://google.com/");
+
+  window.show_all();
+
+  app->run( window );  
+  exit( 0 );
+	return 0;
 }

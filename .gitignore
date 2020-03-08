@@ -1,30 +1,33 @@
 # default cmake files
-./CMakeLists.txt.user
-./CMakeCache.txt
-./CMakeFiles
-./CMakeScripts
-./Makefile
-./cmake_install.cmake
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Makefile
+cmake_install.cmake
 
 # configurations
-./CPackConfig.camke
-./CPackSourceCongig.cmake
+CPackConfig.camke
+CPackSourceCongig.cmake
 
 # test
-./Testing
-./CTestTestfile.cmake
+Testing
+CTestTestfile.cmake
 
 # manifest 
-./install_manifest.txt
+install_manifest.txt
 
 # compile
-./compile_commands.json
+compile_commands.json
 
 # dependencies
-./_deps
+_deps
 
 # output
-./build/
-./*.swp
-./tags
+build
+*.swp
+*.swo
+tags
 
+# GDB
+.gdb_history
