@@ -9,6 +9,7 @@ FIND_PACKAGE(PkgConfig REQUIRED)
 PKG_CHECK_MODULES(GTK3 REQUIRED gtk+-3.0)
 PKG_CHECK_MODULES(GTKMM gtkmm-3.0)
 set(PORT GTK)
+set(LIBEXEC_INSTALL_DIR WebKit/bin)
 
 add_subdirectory(WebKit)
 

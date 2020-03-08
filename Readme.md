@@ -14,7 +14,7 @@ Generate Makefiles
 
 ```
 
-cmake -G "Unix Makefiles" -DPORT=GTK -DUSE_WPE_RENDERER=OFF -DPKGLIBEXECDIR="WebKit/bin"
+cmake -G "Unix Makefiles" -DPORT=GTK -DUSE_WPE_RENDERER=OFF
 
 ```
 

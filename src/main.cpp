@@ -26,7 +26,7 @@ int main (int argc, char** argv)
   Gtk::Window window;
   window.set_default_size( 800, 600 );
 
-  WebKitWebView * one =  WEBKIT_WEB_VIEW( webkit_web_view_new() );
+  WebKitWebView * one =  WEBKIT_WEB_VIEW( webkit_web_view_new_with_settings(webkitSettings));
   /*
    * the next line does some tricks :
    * GTK_WIDGET( one ) -> convert WebKitWebView to GtkWidget (one->two)
