@@ -13,7 +13,10 @@ set(LIBEXEC_INSTALL_DIR WebKit/bin)
 
 add_subdirectory(WebKit)
 
-set(SHBROWSER_SOURCES src/main.cpp)
+set(SHBROWSER_SOURCES 
+	src/main.cpp
+	src/SHBrowserWindow.cpp
+	)
 
 set(WEBKIT_LIBRARIES 
 	libwebkit2gtk-4.0.so
